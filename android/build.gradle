@@ -1,0 +1,27 @@
+buildscript {
+    ext {
+        buildToolsVersion = "36.0.0"
+        minSdkVersion = 24
+        compileSdkVersion = 36
+        targetSdkVersion = 36
+        // NDK 27+ required for std::format (C++20) used by React Native 0.84 prefab.
+        // Install "NDK (Side by side)" 27.x via Android Studio SDK Manager if needed.
+        ndkVersion = "27.0.12077973"
+        kotlinVersion = "2.1.20"
+    }
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("com.android.tools.build:gradle")
+        classpath("com.facebook.react:react-native-gradle-plugin")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
+    }
+}
+
+apply plugin: "com.facebook.react.rootproject"
+
+ext {
+    VisionCamera_enableFrameProcessors = false
+}
